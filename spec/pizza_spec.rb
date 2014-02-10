@@ -29,12 +29,20 @@ describe Pizza do
 
     it 'tells if all toppings on a pizza are vegetarian' do
       toppings = [Topping.new("mushrooms", vegetarian: true),
-        Topping.new("brocolli", vegetarian: true),
+        Topping.new("broccoli", vegetarian: true),
         Topping.new("onions", vegetarian: true)
       ]
       pizza = Pizza.new(toppings)
 
       expect(pizza.vegetarian?).to eq(true)
+    end
+
+    it 'adds a topping to pizza toppings' do
+      pizza = Pizza.new
+      pizza.add_topping([Topping.new('green peppers', vegetarian: true)])
+
+      expect(pizza.toppings.size).to eq(1)
+      expect(pizza.toppings.first.name).to eq('green peppers')
     end
 
 end
