@@ -13,6 +13,10 @@ class Pizza
     end
   end
 
+  def add_topping(topping)
+    @toppings << topping
+  end
+
 end
 
 class Topping
