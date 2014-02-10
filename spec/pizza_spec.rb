@@ -1,4 +1,5 @@
 require './pizza'
+require 'pry-debugger'
 
 describe Pizza do
   it "exists" do
@@ -23,6 +24,19 @@ describe Pizza do
       expect(pizza.toppings.size).to eq(1)
       expect(pizza.toppings.first.name).to eq('cheese')
     end
+
+    # binding.pry
+
+    it 'tells if all toppings on a pizza are vegetarian' do
+      toppings = [Topping.new("mushrooms", vegetarian: true),
+        Topping.new("brocolli", vegetarian: true),
+        Topping.new("onions", vegetarian: true)
+      ]
+      pizza = Pizza.new(toppings)
+
+      expect(pizza.vegetarian?).to eq(true)
+    end
+
 end
 
 describe Topping do
